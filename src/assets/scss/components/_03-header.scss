@@ -1,0 +1,136 @@
+// Header
+.header-container {
+    width: 100%;
+    height: 110px !important;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 5;
+    .alt {
+        background-color: rgba($section-bck, 0.85); 
+        .site-logo {
+            a {
+                background-image: url(#{$imgPath}/logo-color.svg);
+
+            }
+        }
+        .site-nav {
+            .site-menu {
+                li:not(.tw) a {
+                    color: $site-tertiary-color;
+                    &.active {
+                        border: 1px solid $site-gray;
+                    }
+                }
+                .tw-logo {
+                    .tw-color {
+                        fill: $site-tertiary-color;
+                    }
+                }
+            }
+            .hamburger-inner {
+                background-color: $site-tertiary-color;
+                &:before, &:after {
+                    background-color: $site-tertiary-color;
+                }
+            }
+        }
+    }
+}
+
+.nav-open {
+    .site-header {
+        .site-logo {
+            h1 {
+                a {
+                    background-image: url(#{$imgPath}/logo-wht.svg);
+                }
+            }
+        }
+        .site-nav {
+            .hamburger-inner {
+                background-color: $white;
+                &:before, &:after {
+                    background-color: $white;
+                }
+            }
+        }
+    }
+}
+
+.site-header {
+    @include grid-row($width: 100%);
+    @include bp(mediumUp) {
+        padding: 3em 2em .5em;
+    }
+    padding: 1em .8em;
+    .site-logo {
+        @include grid-col(10);
+        @include bp(mediumUp) {
+            @include grid-col(3);
+        }
+        h1 {
+            @include zero-out;
+            a {
+                @include hide-text;
+                @include bp(mediumUp) {
+                    width: 287px;
+                    height: 50px;
+                }
+                background-image: url(#{$imgPath}/logo-wht.svg);
+
+                -webkit-background-size: cover;
+                     -o-background-size: cover;
+                        background-size: cover;
+                width: 220px;
+                height: 38px;
+                display: block;
+            }
+        }
+    }
+    .site-nav {
+        @include grid-col(2);
+        @include bp(mediumUp) {
+            @include grid-col(9);
+        }
+        .mobile-menu {
+            @include visible;
+            @include bp(large) {
+                @include hidden;
+            }
+            float: right;
+            .hamburger {
+                @include bp(mediumUp) {
+                    padding: 15px 0;
+                }
+                padding: 8px 0;
+                position: relative;
+                z-index: 5; 
+            }
+        }
+        .site-menu {
+            @include menu-list($float: right, $padding: 10px 0, $li-margin: 0 10px 0 0);
+            @include hidden;
+            @include bp(large) {
+                @include visible;
+            }
+            li:not(.tw) {
+                a {
+                    @include antiman($color: $white, $hvc: $button-color);
+                    font-weight: bold;
+                    letter-spacing: .03em;
+                    padding: .3em 1.1em;
+                    &.active {
+                        border: 1px solid $white;
+                    }
+                }
+            }
+            .tw-logo {
+                width: 36px;
+                .tw-color {
+                    fill: $white;
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,29 @@
+<section class="header-container">
+	<header class="site-header">
+		<div class="site-logo">
+			<h1><a href="/">Sawiana Solutions</a></h1>
+		</div>
+		<nav class="site-nav">
+			<ul class="site-menu">
+				{% assign  items = site.pages | sort: "nav-weight" %}
+				{% for item in items %}
+					<li>
+						<a href="{{ item.url }}" {% if item.url == page.url %}class="active"{% endif %}>{{ item.nav-item }}</a>
+					</li>
+				{% endfor %}
+				<li class="tw">
+					<a href="" title="">
+						{% include icon-twitter.html %}
+					</a>
+				</li>
+			</ul>
+			<div class="mobile-menu">
+				<button class="hamburger hamburger--slider" type="button">
+				 <span class="hamburger-box">
+				    <span class="hamburger-inner"></span>
+				  </span>
+				</button>
+			</div>
+		</nav>
+	</header>
+</section>

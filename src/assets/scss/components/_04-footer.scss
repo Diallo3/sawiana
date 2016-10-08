@@ -1,0 +1,83 @@
+/* Footer */
+.footer-container {
+    width: 100%;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    z-index: -1;
+    .site-footer {
+        @include grid-row();
+        @include bp(medium) {
+            max-width: 90%;
+        }
+        @include bp(large) {
+            max-width: $maximum-width;
+            width: 80%;
+        }
+        * {
+            color: $footer-text;
+        }
+        .f-top {
+            @include clearfix;
+            border-bottom: 1px solid $footer-text;
+            padding: 5em 0;
+        
+            .s-info {
+                @include bp(mediumUp) {
+                    @include grid-col(7, 30px);
+                    text-align: left;
+                }
+                text-align: center;
+                p {
+                    @include line-height(24);
+                    color: lighten($footer-text, 15%);
+                    font-size: rem(16);
+                    margin: 0 0 1.5em;
+                }
+            }
+            .c-info {
+                @include bp(mediumUp) {
+                    @include grid-col(5, 30px);
+                    text-align: left;
+                }
+                text-align: center;
+                h6 {
+                    color: $white;
+                    font-size: rem(16);
+                    font-weight: 500;
+                }
+                address {
+                    @include grid-row-nest(30px);
+                    .mailing, .media {
+                        @include grid-col(6, 30px);
+                    }
+                    .media {
+                        @include bp(mediumUp) {
+                            text-align: right;
+                        }
+                    }
+                }
+                ul {
+                    @include flat-list;
+                    li {
+                        font-size: rem(14);
+                        font-style: normal;
+                    }
+                }
+            }
+        }
+        .f-bottom {
+            .copyright, .back-to-top {
+                text-align: center;
+                @include bp(mediumUp) {
+                    @include grid-col(6, 30px);
+                } 
+            }
+            .copyright {
+                @include bp(mediumUp) {
+                    text-align: left;
+                }
+            }
+        }
+    }
+}

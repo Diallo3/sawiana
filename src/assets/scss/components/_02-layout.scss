@@ -1,0 +1,241 @@
+body {
+    background-color: $site-primary-color;
+    margin-bottom: 400px;
+    height: 100%;
+}
+
+.vid-bg {
+    @include abs-pos($t: 0, $r:0, $b:0, $l:0);
+    width: 100%;
+    height: auto;
+}
+
+/* -------------------------------- 
+
+Main components 
+
+-------------------------------- */
+
+.cd-section {
+    color: darken($text-gray, 20%);
+    text-align: center;
+    background-color: $section-bck;
+    padding: 2em 1em;
+    width: 100%;
+    height: auto;
+    min-height: 100vh;
+    display: block;
+    overflow: hidden;
+    position: relative;
+    &.dk {
+        background-color: darken($site-primary-color, 20%);
+        * {
+            color: $white;
+        }
+        .bcg {
+            @include abs-pos($t: 0, $l: 0);
+            background-image: url(#{$imgPath}/test.jpg);
+
+            -webkit-background-size: cover;
+                 -o-background-size: cover;
+                    background-size: cover;
+            width: 100%;
+            height: 150%;
+            // z-index: 1;
+
+            opacity: .6;
+        }
+    }
+    &.page {
+        p:not(.call-text) {
+            @include line-height(24);
+            font-size: rem(16);
+            text-align: left;
+            margin-bottom: 2.5em;
+        }
+        .introduction {
+            p {
+                @include line-height(32);
+                color: $site-primary-color;
+                font-size: rem(20);
+            }
+        }
+    }
+
+    // article entry
+    .entry {
+        @include center-align($hor: true, $ver: false);
+        @include mui-fade(in, $duration: 10s, $delay: 2s);
+        @include bp(medium) {
+            max-width: 90%;
+        }
+        @include bp(large) {
+            width: 75%;
+            max-width: $maximum-width;
+        }
+        @include transition(all .8s ease-in-out);
+        padding: 5em 1.5em 1em;
+        width: 100%;
+
+        opacity: 0;
+        &.wide {
+            max-width: 85%;
+        }
+        &.enter {
+            opacity: 1;
+        }
+    }
+}
+
+#intro, #hero {
+    .entry {
+        @include center-align($hor: true, $pos: absolute);
+    }
+}
+
+/*-- Solutions --*/
+#solutions {
+    .entry.wide {
+        padding-top: 0;
+    }
+    .solution-set {
+        @include grid-row;
+        padding: 2em 0;
+        .set {
+            @include bp(large) {
+                @include grid-col(4, 30px);
+            }
+            .icon {
+                @include center-block;
+                margin-bottom: 1em;
+                width: 48px;
+                height: 48px;
+                display: inline-block;
+            }
+        }
+    }
+}
+
+/* Testimonial Slider */
+
+.testimonials {
+    @include orbit-wrapper;
+    @include bp(mediumUp) {
+        display: block;
+    }
+    border-top: 1px solid $white;
+    margin: 0 0 1em;
+    padding: 2em 0;
+    display: none;
+    .testimonial-container {
+        @include orbit-container;
+        @include zero-out;
+        .item-previous, .item-next {
+            @include orbit-control;
+        }
+        .item-previous {
+            @include orbit-previous;
+        }
+        .item-next {
+            @include orbit-next;
+        }
+    }
+    .item {
+        @include orbit-slide;
+        .item-entry {
+            @include grid-row;
+            @include bp(mediumUp) {
+                padding-right: 2.5em;
+                padding-left: 2.5em;
+                figure, .item-callout {
+                    margin: 0;
+                }
+                figure {
+                    @include grid-col(20%, 30px);
+                    img {
+                        @include center-block;
+                    }
+                }
+                .item-callout {
+                    @include grid-col(80%, 30px);
+                }
+            }
+            padding-top: 0;
+            p {
+                margin: 0 0 1.5rem;
+            }
+        }
+    }
+}
+
+// logos
+.logo-container {
+    @include clearfix;
+    background-color: $site-tertiary-color;
+    padding: 2em 1em;
+}
+
+.logos {
+    @include zero-out;
+    @include bp(large) {
+        width: 70%;
+    }
+    @include center-block;
+    list-style-type: none;
+    width: 100%;
+    max-width: $maximum-width;
+    display: table;
+    li {
+        vertical-align: middle;
+        height: 100%;
+        display: table-cell;
+        figure {
+            @include bp(large) {
+                margin: 0 2em;
+            }
+            margin: 0 .25em;
+            height: 100%;
+        }
+    }
+}
+
+// Use Cases
+.usecase-set {
+    @include grid-row;
+    @include bp(large) {
+        &:before {
+            @include abs-pos($t: 12%);
+            border: 1px solid $site-gray;
+            width: 100%;
+            z-index: -1;
+        }
+    }
+    padding: 1em 0;
+    position: relative;
+    .set {
+        @include bp(medium) {
+            @include grid-col(6, 15px);
+        }
+        @include bp(large) {
+            @include grid-col(3, 15px);
+        }
+        text-align: center;
+        .icon {
+            @include circle(50px, $white);
+            @include center-block;
+            color: darken($site-gray, 50%);
+            border: 1px solid $site-gray;
+            margin-bottom: 1em;
+            padding: 12px;
+        }
+        .case-title {
+            font-size: rem(16);
+            font-weight: 400;
+            height: 60px;
+        }
+        .case {
+            font-size: rem(13) !important;
+            text-align: center !important;
+        }
+    }
+}

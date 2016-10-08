@@ -1,0 +1,39 @@
+<!-- footer -->
+<section class="footer-container">
+    <footer class="site-footer">
+        <!-- footer top -->
+        <div class="f-top">
+            <div class="s-info">
+                <p>Sawiana Solutions delivers high performance, durable, scalable wind powered microgrid solutions to ensure local, reliable, efficient and affordable energy security while minimizing environmental impact.</p>
+            </div>
+            <div class="c-info">
+                <h6 class="heading">Contact</h6>
+                <address>
+                    <div class="mailing">
+                        <ul>
+                            <li>{{ site.address }}</li>
+                            <li>{{ site.street }}</li>
+                            <li>{{ site.state }}, {{ site.zip }}</li>
+                        </ul>
+                    </div>
+                    <div class="media">
+                        <ul>
+                            <li><a href="mailto:{{ site.email }}?subject=Inquiry" "email me">{{ site.email }}</a></li>
+                            <li>{{ site.phone }}</li>
+                            
+                        </ul>
+                    </div>
+                </address>
+            </div>
+        </div>
+
+        <!-- footer bottom -->
+        <div class="f-bottom">
+            <div class="copyright">
+                <p><small>©Copyright Sawiana Solutions, Inc. 2016</small></p>
+            </div>
+            <div class="back-to"></div>
+        </div>
+    </footer>
+</section>
+{% include inc-mobile-nav.html %}

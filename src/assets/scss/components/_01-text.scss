@@ -1,0 +1,163 @@
+body {
+    @include antialias;
+    font-family: $roboto;
+}
+
+@include headings() {
+    color: $black;
+    font-family: $roboto;
+    font-weight: 300;
+}
+
+@include headings(1) {
+    font-size: rem(36);
+    margin: 0 0 .5rem;
+}
+
+@include headings(2) {
+    font-size: rem(26);
+    margin: 0 0 .3rem;
+}
+
+a {
+    text-decoration: none; 
+}
+
+p {
+    @include line-height(24);
+    color: darken($text-gray, 20%);
+    font-size: rem(18);
+    font-weight: 400;
+}
+
+.callout {
+    @include bp(large) {
+        padding: 1em 6em;
+    }
+    text-align: center;
+    border: 1px solid $site-gray;
+    border-width: 1px 0;
+    margin: 0 0 2em;
+    padding: 4em 1em 1em;
+    position: relative;
+    &:before, &:after {
+        color: lighten($site-gray, 10%);
+        font-family: georgia;
+        font-size: rem(200);
+        line-height: 1;
+    }
+    &:before {
+        @include abs-pos($t: 0, $r: 0, $l: 0);
+        @include bp(large) {
+            @include abs-pos($t: 20px, $l: 0);
+        }
+        content: "\201C";
+    }
+    &:after {
+        @include abs-pos($t: 20px, $r: 0);
+        @include bp(large) {
+            display: block;
+        }
+        content: "\201D";
+        display: none;
+    }
+    p {
+        @include line-height(28);
+        color: $site-secondary-color;
+        font-size: rem(24);
+        font-weight: 300;
+    }
+    cite {
+        color: darken($text-gray, 20%);
+        font-size: rem(14);
+        font-style: normal;
+        text-transform: uppercase;
+        &:before {
+            content: "-";
+        }
+    }
+}
+
+
+/*--------------------------------
+	Hero and Sections
+*/
+.cd-section {
+    footer {
+        padding: 1.2em 0;
+        a {
+            @include antiman($color: $white, $bgc: $button-color, $hvc: darken($button-color, 20%) );
+            font-size: rem(18);
+            text-transform: uppercase;
+            padding: 1em 2.5em;
+        }
+    }
+}
+
+/*-- Intro --*/
+#intro {
+    .title {
+        font-size: rem(54);
+        font-weight: 500;
+        margin-bottom: .2em;
+    }
+    .sub-title {
+        @include bp(large) {
+            max-width: 60%;
+        }
+        @include center-block;
+        color: lighten($site-secondary-color, 30%);
+        font-size: rem(26);
+    }
+}
+
+/*-- Solutions --*/
+#solutions {
+    p {
+        @include line-height(30);
+        font-size: rem(22);
+        font-weight: 300;
+    }
+    .set {
+        .set-title {
+            font-size: rem(18);
+            font-weight: 500;
+        }
+        p {
+            @include line-height(24);
+            font-size: rem(14);
+        }
+    }
+}
+
+/* Summary Sawiana */
+#summary {
+    .entry {
+        p {
+            @include line-height(28);
+            font-size: rem(20);
+            font-weight: 300;
+        }
+    }
+}
+
+/* Testtimonials */
+.item {
+    text-align: left;
+    .entry {
+        p {
+            margin-bottom: 1em;
+            padding: 0;
+        }
+        cite {
+            font-style: normal;
+            text-transform: uppercase;
+            font-size: rem(14);
+            em {
+                font-style: italic;
+                text-transform: none;
+                display: block;
+            }
+        }
+    }
+}

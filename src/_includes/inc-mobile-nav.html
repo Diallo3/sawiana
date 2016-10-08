@@ -1,0 +1,18 @@
+<nav>
+	<ul class="cd-primary-nav">
+		{% for item in site.pages %}
+			<li>
+				<a href="{{ item.url }}" {% if item.url == page.url %}class="active"{% endif %}>{{ item.nav-item }}</a>
+			</li>
+		{% endfor %}
+		
+		<li class="cd-label">Address</li>
+		<li>{{ site.address }}</li>
+        <li>{{ site.street }}</li>
+        <li>{{ site.state }}, {{ site.zip }}</li>
+
+        <li class="cd-label">Get in touch</li>
+        <li><a href="mailto:{{ site.email }}?subject=Inquiry" "email me">{{ site.email }}</a></li>
+        <li>{{ site.phone }}</li>
+	</ul>
+</nav>
