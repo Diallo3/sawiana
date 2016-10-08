@@ -1,11 +1,10 @@
-# Jekyll + ZURB Template
+# Sawiana Jekyll Template
 
-This is a Jekyllized version of the [official ZURB Template](https://github.com/zurb/foundation-zurb-template) for use with [Foundation for Sites](http://foundation.zurb.com/sites). Zurb's [Panini](https://github.com/zurb/panini) and [Style Sherpa](https://github.com/zurb/style-sherpa/) have been removed and [Jekyll](http://jekyllrb.com/) has been added. Everything else has remained pretty much the same.
 
 ## Installation
 
 ```
-git clone https://github.com/huphtur/jekyll-foundation-zurb-template projectname
+git clone
 ```
 
 Then open the folder in your command line, and install the needed dependencies:
