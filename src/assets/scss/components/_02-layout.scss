@@ -1,7 +1,11 @@
 body {
     background-color: $site-primary-color;
-    margin-bottom: 400px;
+    margin-bottom: 100vh;
     height: 100%;
+}
+
+figure {
+    @include zero-out;
 }
 
 .vid-bg {
@@ -47,12 +51,8 @@ Main components
     }
     &.page {
         &.no-pad {
-            padding-top: 0; 
             padding-left: 0;
             padding-right: 0; 
-            .entry {
-                margin-top: 2em; //for header on caontact form 
-            }
         }
         p:not(.call-text) {
             @include line-height(24);
@@ -233,6 +233,35 @@ Main components
             border: 1px solid $site-gray;
             margin-bottom: 1em;
             padding: 12px;
+        }
+    }
+}
+
+.contact-container {
+    @include grid-row-nest;
+    @include clearfix;
+    text-align: left;
+    ul {
+        @include flat-list;
+        li {
+            position: relative;
+        }
+    }
+    [class*="con-"] {
+        @include bp(large) {
+            @include grid-col(6, 30px);
+        }
+    }
+    .con-left {
+        li {
+            border-bottom: 1px solid $site-gray;
+            span {
+                @include center-align($ver: true, $pos: absolute);
+                left: 25%;
+            }
+            &:last-child {
+                border: none; 
+            } 
         }
     }
 }

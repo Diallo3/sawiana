@@ -12,6 +12,20 @@
 	    	nextClass: 'item-next'
 	    });
 
+	    function stickyHeader() {
+		    $(window).scroll(function() {
+		    	var $header = $('.header-container');
+		        if ($(this).scrollTop() >= 200) {
+		            $header.addClass('smaller');
+		        }
+		        else {
+		            $header.removeClass('smaller');
+		        }
+		    });
+
+	    }
+	    stickyHeader();
+
 
 	    // midnight header
 	    $('.header-container').midnight();

@@ -6,6 +6,7 @@
     top: 0;
     left: 0;
     z-index: 5;
+    
     .alt {
         background-color: rgba($section-bck, 0.85); 
         .site-logo {
@@ -59,6 +60,7 @@
 }
 
 .site-header {
+    @include transition(all .4s ease-in-out);
     @include grid-row($width: 100%);
     @include bp(mediumUp) {
         padding: 3em 2em .5em;
@@ -132,5 +134,11 @@
                 }
             }
         }
+    }
+}
+
+.smaller .site-header {
+    @include bp(mediumUp) {
+        padding: 1em 2em .5em;
     }
 }
