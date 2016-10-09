@@ -99,7 +99,9 @@
 	    }
 	    verticalNav();
 
-	    //open/close primary navigation
+
+
+	    // Open-Close Primary Navigation
 		$('.hamburger').on('click', function(){
 			
 			//in firefox transitions break when parent overflow is changed, so we need to wait for the end of the trasition to give the body an overflow hidden
@@ -136,7 +138,28 @@
 		    })
 		    .setTween(TweenMax.from('.bcg', 1, {y: '-30%', ease:Power0.easeNone}))
 		    .addTo(controller);
-	    })
+	    });
+
+
+
+	    // Form Labels
+		function floatLabels() {
+			var inputFields = $('.floating-labels .cd-label').next();
+			inputFields.each(function(){
+				var singleInput = $(this);
+				//check if user is filling one of the form fields 
+				checkVal(singleInput);
+				singleInput.on('change keyup', function(){
+					checkVal(singleInput);	
+				});
+			});
+		}
+
+		function checkVal(inputField) {
+			( inputField.val() == '' ) ? inputField.prev('.cd-label').removeClass('float') : inputField.prev('.cd-label').addClass('float');
+		}
+
+		if( $('.floating-labels').length > 0 ) floatLabels();
 	    
 
 	    

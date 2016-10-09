@@ -95,7 +95,7 @@ p {
 }
 
 /*-- Intro --*/
-#intro {
+#intro, #hero {
     .title {
         font-size: rem(54);
         font-weight: 500;
@@ -158,6 +158,22 @@ p {
                 text-transform: none;
                 display: block;
             }
+        }
+    }
+}
+
+/*-- Use Cases --*/
+.usecase-set {
+    .set {
+        text-align: center;
+        .case-title {
+            font-size: rem(16);
+            font-weight: 400;
+            height: 60px;
+        }
+        .case {
+            font-size: rem(13) !important;
+            text-align: center !important;
         }
     }
 }

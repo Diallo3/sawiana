@@ -41,12 +41,19 @@ Main components
                     background-size: cover;
             width: 100%;
             height: 150%;
-            // z-index: 1;
 
             opacity: .6;
         }
     }
     &.page {
+        &.no-pad {
+            padding-top: 0; 
+            padding-left: 0;
+            padding-right: 0; 
+            .entry {
+                margin-top: 2em; //for header on caontact form 
+            }
+        }
         p:not(.call-text) {
             @include line-height(24);
             font-size: rem(16);
@@ -116,7 +123,7 @@ Main components
     }
 }
 
-/* Testimonial Slider */
+/*-- Testimonial Slider --*/
 
 .testimonials {
     @include orbit-wrapper;
@@ -168,7 +175,7 @@ Main components
     }
 }
 
-// logos
+/*-- logos --*/
 .logo-container {
     @include clearfix;
     background-color: $site-tertiary-color;
@@ -199,7 +206,7 @@ Main components
     }
 }
 
-// Use Cases
+/*-- Use Cases --*/
 .usecase-set {
     @include grid-row;
     @include bp(large) {
@@ -219,7 +226,6 @@ Main components
         @include bp(large) {
             @include grid-col(3, 15px);
         }
-        text-align: center;
         .icon {
             @include circle(50px, $white);
             @include center-block;
@@ -227,15 +233,6 @@ Main components
             border: 1px solid $site-gray;
             margin-bottom: 1em;
             padding: 12px;
-        }
-        .case-title {
-            font-size: rem(16);
-            font-weight: 400;
-            height: 60px;
-        }
-        .case {
-            font-size: rem(13) !important;
-            text-align: center !important;
         }
     }
 }
