@@ -12887,7 +12887,6 @@ Foundation.plugin(Orbit, 'Orbit');
 	    }
 	    hamburgerNav();
 
-
 	    function smoothScroll(target) {
 	        $('body,html').animate(
 	        	{'scrollTop':target.offset().top},
@@ -12916,7 +12915,6 @@ Foundation.plugin(Orbit, 'Orbit');
 			});
 	    }
 	    smoothAnchor();
-
 
 	    // Vertical Nav
 	    function verticalNav() {
@@ -13034,3 +13032,20 @@ Foundation.plugin(Orbit, 'Orbit');
 
 	
 })(jQuery);
+
+
+// //common.init
+// 	if($("#gallery").length)
+// 	{
+// 		//gallery page
+// 	}
+// 	else if($("#contacts").length)
+// 	{
+// 		//contacts page
+// 	}
+	
+// 	if($(".classname").length)
+// 	{
+// 		// do all the *needed* classes too.
+// 	}
+// 	//common.finalize
