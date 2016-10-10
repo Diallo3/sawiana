@@ -6,7 +6,14 @@
     top: 0;
     left: 0;
     z-index: 5;
-    
+    &.smaller {
+        height: 80px !important;
+        .site-header {
+            @include bp(mediumUp) {
+                padding: 1em 2em .5em;
+            }
+        }
+    }
     .alt {
         background-color: rgba($section-bck, 0.85); 
         .site-logo {
@@ -134,11 +141,5 @@
                 }
             }
         }
-    }
-}
-
-.smaller .site-header {
-    @include bp(mediumUp) {
-        padding: 1em 2em .5em;
     }
 }

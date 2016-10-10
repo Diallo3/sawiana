@@ -1,6 +1,5 @@
 (function($) {
 
-
 	$(function(){
 	    $(document).foundation();
 
@@ -41,6 +40,7 @@
 	    }
 	    hamburgerNav();
 
+
 	    function smoothScroll(target) {
 	        $('body,html').animate(
 	        	{'scrollTop':target.offset().top},
@@ -50,19 +50,25 @@
 
 	    // smooth anchors
 	    function smoothAnchor() {
-	    	$('a[href^="#"').on('click', function(e){
-	    		e.preventDefault();
+	    	$("a").on('click', function(event) {
+			    if (this.hash !== "") {
+			    	// Prevent default anchor click behavior
+			      	event.preventDefault();
 
-	    		var target = this.hash;
-	    		var $target = $(target);
-	    		smoothScroll($target);
-	    		
-	    	})
+			      	// Store hash
+			      	var hash = this.hash;
+
+			      	$('html, body').animate({
+			        	scrollTop: $(hash).offset().top
+			      	}, 600, function(){
+			   
+				        // Add hash (#) to URL when done scrolling (default click behavior)
+				        window.location.hash = hash;
+			      	});
+			    } 
+			});
 	    }
 	    smoothAnchor();
-
-	    
-
 
 
 	    // Vertical Nav

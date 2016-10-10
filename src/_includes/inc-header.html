@@ -1,15 +1,17 @@
 <section class="header-container">
 	<header class="site-header">
 		<div class="site-logo">
-			<h1><a href="/">Sawiana Solutions</a></h1>
+			<h1><a href="{{base}}">Sawiana Solutions</a></h1>
 		</div>
 		<nav class="site-nav">
 			<ul class="site-menu">
 				{% assign  items = site.pages | sort: "nav-weight" %}
 				{% for item in items %}
+					{% unless item.exclude %}
 					<li>
-						<a href="{{ item.url }}" {% if item.url == page.url %}class="active"{% endif %}>{{ item.nav-item }}</a>
+						<a href="{{base}}{{ item.url }}" {% if item.url == page.url %}class="active"{% endif %}>{{ item.nav-item }}</a>
 					</li>
+					{% endunless %}
 				{% endfor %}
 				<li class="tw">
 					<a href="" title="">

@@ -21,10 +21,10 @@
         <!-- For iPhone: -->
         <link rel="apple-touch-icon-precomposed" href="assets/img/favicon-57.png">
     
-        <link rel="stylesheet" href="{{ "/assets/css/app.css" | prepend: site.baseurl }}">
+        <link rel="stylesheet" href="{{ "assets/css/app.css" | prepend: site.baseurl }}">
         <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js"></script>
     </head>
-
+    {% include base.html %}
     <body {% if page.slug %} class="{{ page.slug }}"{% endif %}>
         <main>
             {% include inc-header.html %}
@@ -39,7 +39,7 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.5/plugins/animation.gsap.js"></script>
 
         <!-- app -->
-        <script src="{{ "/assets/js/app.js" | prepend: site.baseurl }}"></script>
+        <script src="{{ "assets/js/app.js" | prepend: site.baseurl }}"></script>
 
         <!-- Google Analytics: change UA-XXXXX-Y to be your site's ID. -->
         <script>

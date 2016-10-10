@@ -56,7 +56,8 @@
         }
 
         &.is-selected .cd-dot {
-            background-color: $color-4;
+            background-color: $white;
+            border: 1px solid $site-tertiary-color; 
         }
     }
 
@@ -218,9 +219,10 @@
     @include transition-property(transform);
     @include transition-duration(.4s);
     text-align: center;
-    background: rgba(darken($site-primary-color, 20%), .96);
-    padding: 200px 0;
-    width: 110%;
+    background: rgba(darken($site-primary-color, 20%), .98);
+    margin: 0; 
+    padding: 10em 0;
+    width: 100%;
     height: 110%;
     overflow: auto;
     /* by default it's hidden - on top of the viewport */
@@ -239,6 +241,37 @@
     &.is-visible {
         @include transform(translateY(0));
     }
+    .nav-item {
+        a {
+            @include antiman($color: $white, $hvc: $button-color);
+            font-weight: bold;
+            letter-spacing: .03em;
+            border: 1px solid rgba($white, .08);
+            margin-bottom: .5em;
+            padding: .8em 2.5em;
+            width: 320px;
+            @include center-block;
+            &.active {
+                border: 1px solid $white;
+            }
+        }
+        &:nth-child(3) {
+            border-bottom: 1px solid rgba($white, 0.06);
+            margin-bottom: 1em; 
+            padding-bottom: 1em;  
+        }
+    }
+    li:not(.nav-item) {
+        color: $site-secondary-color;
+        text-align: left;
+        div {
+            max-width: 250px;
+            @include center-block;
+        } 
+        span {
+            display: block;
+        }
+    }
 }
 
 /*--------------------------------
@@ -249,6 +282,7 @@
     background-color: $form-background;
     .entry {
         text-align: left;
+        padding-top: 1em;
     }
     .field-container {
         @include grid-row-nest;
@@ -278,7 +312,7 @@
         }
     }
     margin: 0 auto;
-    padding-bottom: 1em; 
+    padding-bottom: 1em;
     * {
         color: $white;
     }
@@ -313,14 +347,14 @@
         font-size: rem(17);
     }
 
-    input[type="text"], input[type="email"], textarea, select, legend {
+    input[type="text"], input[type="email"], input[type="tel"], textarea, select, legend {
         @include appearance(none);
         width: 100%;
         display: block;
     }
 
     input[type="text"], input[type="email"], input[type="tel"], textarea, select {
-        box-shadow: inset 0 1px 1px rgba(#000, .08);
+        box-shadow: inset 0 1px 1px rgba($black, .08);
         border: 1px solid $white;
         border-radius: .25em;
         /* general style for input elements */
@@ -330,7 +364,7 @@
             outline: none;
             background-color: lighten($site-tertiary-color, 10%);
             box-shadow: 0 0 5px rgba($black, .2);
-            border-color: $color-2;
+            border-color: lighten($site-tertiary-color, 30%);
         }
     }
 
@@ -344,26 +378,23 @@
     .submit-container {
         @include clearfix;
         clear: both;
-        position: relative; 
-        
+        position: relative;
+
         .submit {
             @include antiman($color: inherit, $bgc: $button-color, $hvc: none);
-            font-size: rem(18);
-            background-color: $button-color;
-            bottom: -55px; 
-            z-index: 5;
-            text-transform: uppercase;
-            padding: 1em 2.5em;
-            cursor: pointer;
             @include center-align($ver: false, $hor: true, $pos: absolute);
+            font-size: rem(18);
+            text-transform: uppercase;
+            background-color: $button-color;
+            padding: 1em 2.5em;
+            bottom: -55px;
+            z-index: 5;
+
+            cursor: pointer;
             &:focus {
                 outline: none;
                 background: $color-1;
             }
-
-            // &:active {
-            //     @include transform(scale(.9));
-            // }
         }
     }
 
@@ -469,7 +500,7 @@ $label-pos: 18px;
 
     .cd-label {
         @include transition(top .2s, left .2s, font-size .2s);
-        color: rgba($white, 0.5);
+        color: rgba($white, .5);
         font-size: rem(17);
         position: absolute;
         top: $label-pos;
@@ -486,8 +517,22 @@ $label-pos: 18px;
         /* move label out the input field */
         color: darken($form-input, 20%);
         font-size: rem(11);
-        font-weight: 500; 
+        font-weight: 500;
         top: -$label-pos;
         left: 0 !important;
     }
+}
+
+input:-webkit-autofill, textarea:-webkit-autofill, select:-webkit-autofill {
+    outline: none;
+    background-color: lighten($site-tertiary-color, 10%);
+    box-shadow: 0 0 5px rgba($black, .2);
+    border-color: lighten($site-tertiary-color, 30%);
+}
+
+input.rdr {
+    outline: 0;
+    background: none;
+    border: none;
+    width: 20px;
 }

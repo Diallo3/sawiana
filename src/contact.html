@@ -59,31 +59,34 @@ subhead: Sawiana Microgrid is a complete solution incorporating wind power gener
 	<div id="formContainer" class="form">
 		<article class="entry">
 
-			<form class="cd-form floating-labels" action="">
+			<form class="cd-form floating-labels" action="https://formspree.io/d@diallohudgins.com" method="POST">
 
 				<fieldset>
-					<!-- error -->
+					<!-- error 
 					<div class="error-message">
 						<p>Please enter a valid email address</p>
 					</div>
+					-->
 					
 					<div class="field-container">
 						<!-- left side -->
 						<div class="form-left">
 							<div class="icon">
 								<label class="cd-label" for="cd-name">Full Name</label>
-								<input class="user" type="text" name="cd-name" id="cd-name" required>
+								<input class="user" type="text" name="Full Name" id="cd-name" required>
 						    </div>
 
 						    <div class="icon">
 						    	<label class="cd-label" for="cd-email">Email</label>
-								<input class="email" type="email" name="cd-email" id="cd-email" required>
+								<input class="email" type="email" name="Email" id="cd-email" name="_replyto" required>
 						    </div>
 						
 						    <div class="icon">
 						    	<label class="cd-label" for="cd-phone">Phone</label>
-								<input class="tel" type="text" name="cd-company" id="cd-company" required="">
+								<input class="tel" type="text" name="Phone" id="cd-phone" required="">
 						    </div> 
+
+						    <input type="text" name="_gotcha" style="display:none" />
 						
 						    
 						</div>
@@ -91,8 +94,8 @@ subhead: Sawiana Microgrid is a complete solution incorporating wind power gener
 						<!-- right side -->
 						<div class="form-right">
 							<div class="icon">
-								<label class="cd-label" for="cd-textarea">Project description</label>
-								<textarea class="message" name="cd-textarea" id="cd-textarea" required></textarea>
+								<label class="cd-label" for="cd-textarea">What are you interested in learning?</label>
+								<textarea class="message" name="Message" id="cd-textarea" required></textarea>
 							</div>
 						</div>
 					</div>
@@ -100,6 +103,8 @@ subhead: Sawiana Microgrid is a complete solution incorporating wind power gener
 					<div class="submit-container">
 				      	<input type="submit" value="Send Message" class="submit">
 				    </div>
+				    <input type="hidden" name="_next" value="/thank-you.html" />
+				    <input type="hidden" name="_subject" value="New submission for Sawiana!" />
 				</fieldset>
 			</form>
 

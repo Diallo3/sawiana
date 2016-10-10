@@ -70,6 +70,7 @@ $roboto: "Roboto", sans-serif;
 @mixin antiman($color: inherit, $bgc: none, $hvc: none, $bdc: transparent) {
     color: $color;
     text-align: center;
+    text-shadow: none !important; 
     vertical-align: middle;
     text-decoration: none;
     background: none;

@@ -1,18 +1,28 @@
 <nav>
 	<ul class="cd-primary-nav">
-		{% for item in site.pages %}
-			<li>
-				<a href="{{ item.url }}" {% if item.url == page.url %}class="active"{% endif %}>{{ item.nav-item }}</a>
+		{% assign  items = site.pages | sort: "nav-weight" %}
+		{% for item in items %}
+			{% unless item.exclude %}
+			<li class="nav-item">
+				<a href="{{base}}{{ item.url }}" {% if item.url == page.url %}class="active"{% endif %}>{{ item.nav-item }}</a>
 			</li>
+			{% endunless %}
 		{% endfor %}
 		
-		<li class="cd-label">Address</li>
-		<li>{{ site.address }}</li>
-        <li>{{ site.street }}</li>
-        <li>{{ site.state }}, {{ site.zip }}</li>
+		<li class="cd-label">
+			<div class="mail">
+				<span class="">Address</span>
+				<span class="">{{ site.address }}</span>
+				<span class="">{{ site.street }}</span>
+				<span class="">{{ site.state }}, {{ site.zip }}</span>
+			</div>
 
-        <li class="cd-label">Get in touch</li>
-        <li><a href="mailto:{{ site.email }}?subject=Inquiry" "email me">{{ site.email }}</a></li>
-        <li>{{ site.phone }}</li>
+			<div class="media">
+				<span class="">Get in touch</span>
+				<span class=""><a href="mailto:{{ site.email }}?subject=Inquiry" "email me">{{ site.email }}</a></span>
+				<span class="">{{ site.phone }}</span>
+			</div>	
+
+		</li>
 	</ul>
 </nav>

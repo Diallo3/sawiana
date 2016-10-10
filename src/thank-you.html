@@ -1,0 +1,47 @@
+---
+title: Sawiana Solutions
+nav-item: Thank You
+nav-weight: 1
+description: Thank you for your inquiry. 
+slug: thank-you
+exclude: true
+layout: default
+---
+
+<section id="intro" class="cd-section dk">
+	<article class="entry">
+		<header>
+			<h1 class="title">Thank you for your inquiry</h1>
+			<h2 class="sub-title">We have received your message and would like to thank you for writing to us. We will reply by email shortly.</h2>
+		</header>
+		<footer>
+			<form name="redirect">
+				You will be redirected to the script in <input class="rdr" type="text" size="3" name="redirect2"> seconds
+			</form>
+		</footer>
+
+	</article>
+</section>
+
+<script>
+	<!--
+		var targetURL="/"
+		var countdownfrom=10
+		var currentsecond=document.redirect.redirect2.value=countdownfrom+1
+
+		function countredirect(){
+			if (currentsecond!=1) {
+				currentsecond-=1
+				document.redirect.redirect2.value=currentsecond
+			} else {
+				window.location=targetURL
+				return
+			}
+			setTimeout("countredirect()",1000)
+		}
+
+		countredirect()
+	//-->
+</script>
+
+
