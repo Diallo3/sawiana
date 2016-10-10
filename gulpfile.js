@@ -5,6 +5,7 @@ var gulp     = require('gulp');
 var rimraf   = require('rimraf');
 var sequence = require('run-sequence');
 var cp       = require('child_process');
+var ghPages  = require('gulp-gh-pages');
 
 // Check for --production flag
 var isProduction = !!(argv.production);
@@ -147,6 +148,14 @@ gulp.task('images', function() {
 // Build the "dist" folder by running all of the above tasks
 gulp.task('build', function(done) {
   sequence('clean', ['jekyll', 'sass', 'javascript', 'images', 'copy'], done);
+});
+
+// deploy to gh-pages
+
+
+gulp.task('deploy', function() {
+  return gulp.src('./dist/**/*')
+    .pipe(ghPages());
 });
 
 // Start a server with LiveReload to preview the site in

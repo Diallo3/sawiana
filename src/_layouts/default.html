@@ -24,7 +24,8 @@
         <link rel="stylesheet" href="{{ "assets/css/app.css" | prepend: site.baseurl }}">
         <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js"></script>
     </head>
-    
+    <!-- base url -->
+    {% include base.html %}
     <body {% if page.slug %} class="{{ page.slug }}"{% endif %}>
         <main>
             {% include inc-header.html %}

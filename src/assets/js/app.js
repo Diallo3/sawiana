@@ -40,7 +40,6 @@
 	    }
 	    hamburgerNav();
 
-
 	    function smoothScroll(target) {
 	        $('body,html').animate(
 	        	{'scrollTop':target.offset().top},
@@ -50,7 +49,7 @@
 
 	    // smooth anchors
 	    function smoothAnchor() {
-	    	$("a").on('click', function(event) {
+	    	$('a').on('click', function(event) {
 			    if (this.hash !== "") {
 			    	// Prevent default anchor click behavior
 			      	event.preventDefault();
@@ -69,7 +68,6 @@
 			});
 	    }
 	    smoothAnchor();
-
 
 	    // Vertical Nav
 	    function verticalNav() {
