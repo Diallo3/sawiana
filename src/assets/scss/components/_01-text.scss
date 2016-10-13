@@ -20,7 +20,15 @@ body {
 }
 
 a {
+    color: $site-primary-color;
     text-decoration: none; 
+    @include transition(all .8s ease-in-out);
+    &:active {
+        color: $site-secondary-color;
+    }
+    &:hover {
+        color: $site-quaternary-color;
+    }
 }
 
 p {

@@ -27,7 +27,7 @@
                 li:not(.tw) a {
                     color: $site-tertiary-color;
                     &.active {
-                        border: 1px solid $site-gray;
+                        border: 2px solid $site-gray;
                     }
                 }
                 .tw-logo {
@@ -130,7 +130,7 @@
                     letter-spacing: .03em;
                     padding: .3em 1.1em;
                     &.active {
-                        border: 1px solid $white;
+                        border: 2px solid $white;
                     }
                 }
             }
