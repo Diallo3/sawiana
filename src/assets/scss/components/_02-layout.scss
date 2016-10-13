@@ -113,6 +113,19 @@ Main components
      background-size: cover;  
 }
 
+/*-- About -- */
+.about {
+    #hero {
+        .bcg {
+            background-image: url(#{$imgPath}/img-summary.jpg);
+            background-position: 50% 0;
+            opacity: 0.85;
+        }
+        
+    }
+}
+
+
 /*-- Solutions --*/
 #solutions {
     .bcg {

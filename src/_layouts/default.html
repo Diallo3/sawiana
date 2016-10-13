@@ -26,7 +26,7 @@
     </head>
     <!-- base url -->
     {% include base.html %}
-    <body {% if page.slug %} class="{{ page.slug }}"{% endif %}>
+    <body {% if page.slug %} id="{{page.slug}}-page" class="{{ page.slug }}"{% endif %}>
         <main>
             {% include inc-header.html %}
             {{ content }}

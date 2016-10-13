@@ -6,6 +6,7 @@ var rimraf   = require('rimraf');
 var sequence = require('run-sequence');
 var cp       = require('child_process');
 var ghPages  = require('gulp-gh-pages');
+var babel    = require('gulp-babel');
 
 // Check for --production flag
 var isProduction = !!(argv.production);
@@ -125,6 +126,9 @@ gulp.task('javascript', function() {
 
   return gulp.src(PATHS.javascript)
     .pipe($.sourcemaps.init())
+    .pipe(babel({
+      presets: ['es2015']
+    }))
     .pipe($.concat('app.js'))
     .pipe(uglify)
     // .pipe($.if(!isProduction, $('string/element/array/function/jQuery object/string, context')()))

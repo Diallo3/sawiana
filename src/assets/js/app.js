@@ -111,14 +111,8 @@
 					}
 				});
 			}
-
-			
-
 	    }
-	    verticalNav();
-
-
-
+	    
 	    // Open-Close Primary Navigation
 		$('.hamburger').on('click', function(){
 			
@@ -177,7 +171,13 @@
 			( inputField.val() == '' ) ? inputField.prev('.cd-label').removeClass('float') : inputField.prev('.cd-label').addClass('float');
 		}
 
-		if( $('.floating-labels').length > 0 ) floatLabels();
+		
+
+		if ($('#home-page').length) {
+			verticalNav();
+		} else if($('#contact-page')) {
+			if( $('.floating-labels').length > 0 ) floatLabels();
+		}
 	    
 
 	    
@@ -185,20 +185,3 @@
 
 	
 })(jQuery);
-
-
-// //common.init
-// 	if($("#gallery").length)
-// 	{
-// 		//gallery page
-// 	}
-// 	else if($("#contacts").length)
-// 	{
-// 		//contacts page
-// 	}
-	
-// 	if($(".classname").length)
-// 	{
-// 		// do all the *needed* classes too.
-// 	}
-// 	//common.finalize

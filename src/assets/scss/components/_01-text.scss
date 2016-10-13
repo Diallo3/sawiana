@@ -94,7 +94,7 @@ p {
     footer {
         padding: 1.2em 0;
         a {
-            @include antiman($color: $white, $bgc: $button-color, $hvc: darken($button-color, 20%) );
+            @include antiman($color: $white, $bgc: $button-color, $hvc: $site-secondary-color);
             font-size: rem(18);
             text-transform: uppercase;
             padding: 1em 2.5em;
