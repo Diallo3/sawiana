@@ -8,6 +8,12 @@ figure {
     @include zero-out;
 }
 
+.ov {
+    @include abs-pos($t: 0, $r:0, $b:0, $l:0);
+    @include radial-gradient(#0c2637, $black);
+    opacity: 0.5; 
+}
+
 .vid-bg {
     @include abs-pos($t: 0, $r:0, $b:0, $l:0);
     @include bp(large) {
@@ -131,6 +137,18 @@ Main components
     #hero {
         .bcg {
             background-image: url(#{$imgPath}/img-summary.jpg);
+
+            background-position: 50% 0;
+
+            opacity: .85;
+        }
+    }
+}
+
+.contact {
+    #hero {
+        .bcg {
+            background-image: url(#{$imgPath}/img-contact.jpg);
 
             background-position: 50% 0;
 
