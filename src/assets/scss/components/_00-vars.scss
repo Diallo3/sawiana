@@ -83,6 +83,7 @@ $roboto: "Roboto", sans-serif;
 
     -webkit-backface-visibility: hidden;
     -moz-osx-font-smoothing: grayscale;
+    transition: all 0.2s ease-in-out;
     &::before, &::after {
         content: "";
         border-radius: inherit;
