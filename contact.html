@@ -24,13 +24,16 @@
         <link rel="stylesheet" href="assets/css/app.css">
         <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js"></script>
     </head>
+    <!-- base url -->
     
-    <body  class="contact">
-        <main>
+
+
+    <body  id="contact-page" class="contact">
+        <main id="main-view" class="main-scene">
             <section class="header-container">
 	<header class="site-header">
 		<div class="site-logo">
-			<h1><a href="">Sawiana Solutions</a></h1>
+			<h1><a href=".">Sawiana Solutions</a></h1>
 		</div>
 		<nav class="site-nav">
 			<ul class="site-menu">
@@ -40,19 +43,19 @@
 				
 					
 					<li>
-						<a href="/" >Home</a>
+						<a href="./" class="page-link" title="Sawiana Solutions">Home</a>
 					</li>
 					
 				
 					
 					<li>
-						<a href="/about.html" >About Sawiana</a>
+						<a href="./about.html" class="page-link" title="About Sawiana Solutions">About Sawiana</a>
 					</li>
 					
 				
 					
 					<li>
-						<a href="/contact.html" class="active">Contact Us</a>
+						<a href="./contact.html" class="page-link active" title="Contact Sawiana Solutions">Contact Us</a>
 					</li>
 					
 				
@@ -80,7 +83,7 @@
 		</nav>
 	</header>
 </section>
-            <section id="hero" class="cd-section dk">
+            <section id="hero" class="hero-section cd-section dk">
 	<div class="bcg"></div>
 	<article class="entry">
 		<header>
@@ -88,40 +91,22 @@
 			<h2 class="sub-title">Sawiana Microgrid is a complete solution incorporating wind power generation.</h2>
 		</header>
 	</article>
+	<a href="#page-content" class="down-arrow">
+	<svg class="arrows">
+		<path class="a1" d="M0 0 L30 32 L60 0"></path>
+		<path class="a2" d="M0 20 L30 52 L60 20"></path>
+		<path class="a3" d="M0 40 L30 72 L60 40"></path>
+	</svg>
+</a>
 </section>
 
 <!-- Content -->
 <section id="page-content" class="cd-section page no-pad" data-midnight="alt">
 	<article class="entry">
-		<div class="contact-container">
-			<div class="con-left">
-				<ul class="media">
-					<li>
-						<figure>
-							<img src="assets/img/icon-top-phone.svg" alt="">
-						</figure>
-						<span class="desc">(111)-555-1234</span>
-					</li>
-					<li>
-						<figure>
-							<img src="assets/img/icon-top-mail.svg" alt="">
-						</figure>
-						<span class="desc">
-							<a href="mailto:info@sawiana.com?subject=Inquiry" "email me">info@sawiana.com</a>
-						</span>
-					</li>
-				</ul>
-			</div>
-			<div class="con-right">
-				<h4>Sawiana Solutions</h4>
 
-				<ul class="mail">
-                    <li>Studio D,  Suite 300</li>
-                    <li>123 Anywhere Place,</li>
-                    <li>Washington, DC, 20001</li>
-                </ul>
-			</div>
-		</div>
+		<h1>Let's get started.</h1>
+
+		<p>Sawiana Solution’s product has evolved to uniquely meet the requirements for microgrid deployment to meet a broad range of distributed energy requirements and applications. Contact us at <span class="email">info [at] sawiana.com</span> or fill out the form below to start the path to the new segment of the energy landscape.</p>
 
 
 	</article>
@@ -129,7 +114,7 @@
 	<div id="formContainer" class="form">
 		<article class="entry">
 
-			<form class="cd-form floating-labels" action="https://formspree.io/d@diallohudgins.com" method="POST">
+			<form class="cd-form floating-labels" action="https://formspree.io/info@sawiana.com" method="POST">
 
 				<fieldset>
 					<!-- error 
@@ -184,17 +169,6 @@
 
 </section>
 
-
-
-<!-- secondary -->
-<section id="secondary-content" class="cd-section page" data-midnight="alt">
-	<article class="entry">
-		<blockquote class="callout">
-			<p class="call-text">Sawiana’s delivers high performance, durable, scalable wind powered microgrid solutions to ensure local, reliable, efficient and affordable energy security while minimizing environmental impact.</p>
-		</blockquote>
-	</article>
-</section>
-
             <!-- footer -->
 <section class="footer-container">
     <footer class="site-footer">
@@ -203,28 +177,7 @@
         </div>
         <!-- footer top -->
         <div class="f-top">
-            <div class="s-info">
-                <p>Sawiana Solutions delivers high performance, durable, scalable wind powered microgrid solutions to ensure local, reliable, efficient and affordable energy security while minimizing environmental impact.</p>
-            </div>
-            <div class="c-info">
-                <h6 class="heading">Contact</h6>
-                <address>
-                    <div class="mailing">
-                        <ul>
-                            <li>Studio D,  Suite 300</li>
-                            <li>123 Anywhere Place,</li>
-                            <li>Washington, DC, 20001</li>
-                        </ul>
-                    </div>
-                    <div class="media">
-                        <ul>
-                            <li><a href="mailto:info@sawiana.com?subject=Inquiry" "email me">info@sawiana.com</a></li>
-                            <li>(111)-555-1234</li>
-                            
-                        </ul>
-                    </div>
-                </address>
-            </div>
+            <p>Sawiana Solutions delivers high performance, durable, scalable wind powered microgrid solutions to ensure local, reliable, efficient and affordable energy security while minimizing environmental impact.</p>
         </div>
 
         <!-- footer bottom -->
@@ -232,7 +185,9 @@
             <div class="copyright">
                 <p><small>©Copyright Sawiana Solutions, Inc. 2016</small></p>
             </div>
-            <div class="back-to"></div>
+            <div class="back-to-top">
+                <p><small><strong>Contact:</strong> <span class="email">info [at] sawiana.com</span></p>
+            </div>
         </div>
     </footer>
 </section>
@@ -244,35 +199,27 @@
 		
 			
 			<li class="nav-item">
-				<a href="/" >Home</a>
+				<a href="./" >Home</a>
 			</li>
 			
 		
 			
 			<li class="nav-item">
-				<a href="/about.html" >About Sawiana</a>
+				<a href="./about.html" >About Sawiana</a>
 			</li>
 			
 		
 			
 			<li class="nav-item">
-				<a href="/contact.html" class="active">Contact Us</a>
+				<a href="./contact.html" class="active">Contact Us</a>
 			</li>
 			
 		
 		
 		<li class="cd-label">
-			<div class="mail">
-				<span class="">Address</span>
-				<span class="">Studio D,  Suite 300</span>
-				<span class="">123 Anywhere Place,</span>
-				<span class="">Washington, DC, 20001</span>
-			</div>
-
 			<div class="media">
-				<span class="">Get in touch</span>
+				<span class="">Let's get started</span>
 				<span class=""><a href="mailto:info@sawiana.com?subject=Inquiry" "email me">info@sawiana.com</a></span>
-				<span class="">(111)-555-1234</span>
 			</div>	
 
 		</li>

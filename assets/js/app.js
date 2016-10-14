@@ -4792,7 +4792,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
 		// smooth anchors
 		function smoothAnchor() {
-			$("a").on('click', function (event) {
+			$('a').on('click', function (event) {
 				if (this.hash !== "") {
 					// Prevent default anchor click behavior
 					event.preventDefault();
@@ -4854,7 +4854,6 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 				});
 			}
 		}
-		verticalNav();
 
 		// Open-Close Primary Navigation
 		$('.hamburger').on('click', function () {
@@ -4871,24 +4870,28 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 			}
 		});
 
-		// Init ScrollMagic
-		var controller = new ScrollMagic.Controller();
+		function scrollMagik() {
+			// Init ScrollMagic
+			var controller = new ScrollMagic.Controller();
 
-		// loop scenes
-		$('.cd-section .entry').each(function () {
-			var fadeScene = new ScrollMagic.Scene({
-				triggerElement: this
-			}).setClassToggle(this, 'enter').addTo(controller);
-		});
+			// loop scenes
+			$('.cd-section .entry').each(function () {
+				var fadeScene = new ScrollMagic.Scene({
+					triggerElement: this,
+					duration: '100%'
+				}).setClassToggle(this, 'enter').addTo(controller);
+			});
 
-		// parallax
-		$('.dk').each(function () {
-			var backgroundSlide = new ScrollMagic.Scene({
-				triggerElement: this,
-				triggerHook: 1,
-				duration: '200%'
-			}).setTween(TweenMax.from('.bcg', 1, { y: '-30%', ease: Power0.easeNone })).addTo(controller);
-		});
+			// parallax
+			$('.dk').each(function () {
+				var backgroundSlide = new ScrollMagic.Scene({
+					triggerElement: this,
+					triggerHook: 1,
+					duration: '200%'
+				}).setTween(TweenMax.from('.bcg', 1, { y: '-30%', ease: Power0.easeNone })).addTo(controller);
+			});
+		}
+		scrollMagik();
 
 		// Form Labels
 		function floatLabels() {
@@ -4907,22 +4910,38 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 			inputField.val() == '' ? inputField.prev('.cd-label').removeClass('float') : inputField.prev('.cd-label').addClass('float');
 		}
 
-		if ($('.floating-labels').length > 0) floatLabels();
+		if ($('#home-page').length) {
+			verticalNav();
+		} else if ($('#contact-page')) {
+			if ($('.floating-labels').length > 0) floatLabels();
+		}
 	});
 })(jQuery);
 
-// //common.init
-// 	if($("#gallery").length)
-// 	{
-// 		//gallery page
-// 	}
-// 	else if($("#contacts").length)
-// 	{
-// 		//contacts page
-// 	}
+// encode emails
+function convertMailAddress() {
+	var emailElements;
+	if (document.getElementsByClassName) emailElements = document.getElementsByClassName("email");else emailElements = document.getElementsByClassNameForOldies("email");
+	var elementContent, replaceContent;
 
-// 	if($(".classname").length)
-// 	{
-// 		// do all the *needed* classes too.
-// 	}
-// 	//common.finalize
+	for (var i = 0; i < emailElements.length; i++) {
+		elementContent = emailElements[i].innerHTML;
+		replaceContent = elementContent.replace(" [at] ", "&#64;");
+		emailElements[i].innerHTML = "<a href=\"mailto:" + replaceContent + "\">" + replaceContent + "</a>";
+	}
+}
+
+// http://javascript.about.com/library/bldom08.htm
+document.getElementsByClassNameForOldies = function (cl) {
+	var retnode = [];
+	var myclass = new RegExp('\\b' + cl + '\\b');
+	var elem = this.getElementsByTagName('*');
+
+	for (var i = 0; i < elem.length; i++) {
+		var classes = elem[i].className;
+		if (myclass.test(classes)) retnode.push(elem[i]);
+	}
+	return retnode;
+};
+
+window.onload = convertMailAddress;
