@@ -219,7 +219,7 @@
     @include transition-duration(.4s);
     text-align: center;
     background: rgba(darken($site-primary-color, 20%), .98);
-    margin: 0; 
+    margin: 0;
     padding: 10em 0;
     width: 100%;
     height: 110%;
@@ -243,30 +243,30 @@
     .nav-item {
         a {
             @include antiman($color: $white, $hvc: $button-color);
+            @include center-block;
             font-weight: bold;
             letter-spacing: .03em;
             border: 1px solid rgba($white, .08);
             margin-bottom: .5em;
             padding: .8em 2.5em;
             width: 320px;
-            @include center-block;
             &.active {
                 border: 1px solid $white;
             }
         }
         &:nth-child(3) {
-            border-bottom: 1px solid rgba($white, 0.06);
-            margin-bottom: 1em; 
-            padding-bottom: 1em;  
+            border-bottom: 1px solid rgba($white, .06);
+            margin-bottom: 1em;
+            padding-bottom: 1em;
         }
     }
     li:not(.nav-item) {
         color: $site-secondary-color;
         text-align: left;
         div {
-            max-width: 250px;
             @include center-block;
-        } 
+            max-width: 250px;
+        }
         span {
             display: block;
         }
@@ -534,4 +534,77 @@ input.rdr {
     background: none;
     border: none;
     width: 20px;
+}
+
+.down-arrow {
+    @include center-align($ver: false, $hor: true, $pos: absolute);
+    @include disable-mouse-outline;
+    background: url(#{$imgPath}/icon-down.svg) no-repeat 0 0;
+
+    width: 62px;
+    height: 78px;
+    display: block;
+    bottom: 20px;
+}
+
+.arrows {
+    width: 62px;
+    height: 78px;
+}
+
+
+
+.arrows path {
+    -webkit-animation: arrow 2s infinite;
+            animation: arrow 2s infinite;
+
+    stroke: #2994d1;
+    fill: transparent;
+    stroke-width: 1px;
+}
+
+@keyframes arrow {
+    0% {
+        opacity: 0;
+    }
+    40% {
+        opacity: 1;
+    }
+    80% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 0;
+    }
+}
+
+@-webkit-keyframes arrow /*Safari and Chrome*/ {
+
+    0% {
+        opacity: 0;
+    }
+    40% {
+        opacity: 1;
+    }
+    80% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 0;
+    }
+}
+
+.arrows path.a1 {
+    -webkit-animation-delay: -1s; /* Safari 和 Chrome */
+            animation-delay: -1s;
+}
+
+.arrows path.a2 {
+    -webkit-animation-delay: -.5s; /* Safari 和 Chrome */
+            animation-delay: -.5s;
+}
+
+.arrows path.a3 {
+    -webkit-animation-delay: 0s; /* Safari 和 Chrome */
+            animation-delay: 0s;
 }
