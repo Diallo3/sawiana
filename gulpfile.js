@@ -32,8 +32,10 @@ var PATHS = {
     'bower_components/foundation-sites/scss',
     'bower_components/motion-ui'
   ],
-  javascript: [
+  jquery: [
     'bower_components/jquery/dist/jquery.js',
+  ],
+  foundation: [
     'bower_components/what-input/what-input.js',
     'bower_components/foundation-sites/js/foundation.core.js',
     'bower_components/foundation-sites/js/foundation.util.*.js',
@@ -57,6 +59,8 @@ var PATHS = {
     // 'bower_components/foundation-sites/js/foundation.tabs.js',
     // 'bower_components/foundation-sites/js/foundation.toggler.js',
     // 'bower_components/foundation-sites/js/foundation.tooltip.js',
+  ],
+  javascript: [
     'src/assets/js/**/!(app).js',
     'src/assets/js/app.js'
   ]
@@ -116,24 +120,51 @@ gulp.task('sass', function() {
     .pipe(browser.reload({ stream: true }));
 });
 
+gulp.task('jquery', function() {
+    var uglify = $.if(!isProduction, $.uglify()
+        .on('error', function (e) {
+            console.log(e);
+        }));
+
+    return gulp.src(PATHS.jquery)
+        .pipe($.concat('jquery.js'))
+        .pipe(uglify)
+        .pipe(gulp.dest('dist/assets/js'))
+        .on('finish', browser.reload);
+});
+
+gulp.task('fnd', function() {
+    var uglify = $.if(!isProduction, $.uglify()
+        .on('error', function (e) {
+            console.log(e);
+        }));
+
+    return gulp.src(PATHS.foundation) 
+        .pipe($.concat('fnd.js'))
+        .pipe(babel({
+            presets: ['es2015']
+        }))
+        .pipe(uglify)
+        .pipe(gulp.dest('dist/assets/js'))
+        .on('finish', browser.reload);
+});
+
 // Combine JavaScript into one file
 // In production, the file is minified
 gulp.task('javascript', function() {
-  var uglify = $.if(isProduction, $.uglify()
-    .on('error', function (e) {
-      console.log(e);
-    }));
+    var uglify = $.if(isProduction, $.uglify()
+        .on('error', function (e) {
+            console.log(e);
+        }));
 
-  return gulp.src(PATHS.javascript)
-    .pipe($.sourcemaps.init())
-    .pipe(babel({
-      presets: ['es2015']
-    }))
-    .pipe($.concat('app.js'))
-    .pipe(uglify)
-    // .pipe($.if(!isProduction, $('string/element/array/function/jQuery object/string, context')()))
-    .pipe(gulp.dest('dist/assets/js'))
-    .on('finish', browser.reload);
+    return gulp.src(PATHS.javascript)
+        .pipe($.sourcemaps.init())
+        
+        .pipe($.concat('app.js'))
+        .pipe(uglify)
+        // .pipe($.if(!isProduction, $('string/element/array/function/jQuery object/string, context')()))
+        .pipe(gulp.dest('dist/assets/js'))
+        .on('finish', browser.reload);
 });
 
 // Copy images to the "dist" folder
@@ -151,7 +182,7 @@ gulp.task('images', function() {
 
 // Build the "dist" folder by running all of the above tasks
 gulp.task('build', function(done) {
-  sequence('clean', ['jekyll', 'sass', 'javascript', 'images', 'copy'], done);
+  sequence('clean', ['jekyll', 'sass', 'jquery', 'fnd', 'javascript', 'images', 'copy'], done);
 });
 
 // deploy to gh-pages

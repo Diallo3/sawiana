@@ -27,8 +27,13 @@
 
 
 	    // midnight header
-	    $('.header-container').midnight();
-	    $('.vertical-nav').midnight();
+	    function headerAndContolls() {
+	    	var $headerNav = $('.header-container');
+	    	var $verticalNav =  $('.vertical-nav');
+	    	$headerNav.midnight();
+	    	$verticalNav.midnight();
+	    }
+	    headerAndContolls();
 
 	    // hambuger
 	    function hamburgerNav() {
