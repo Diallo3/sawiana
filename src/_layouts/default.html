@@ -27,7 +27,7 @@
     <!-- base url -->
     {% include base.html %}
     <body {% if page.slug %} id="{{page.slug}}-page" class="{{ page.slug }}"{% endif %}>
-        <main>
+        <main id="main-view" class="main-scene">
             {% include inc-header.html %}
             {{ content }}
             {% include inc-footer.html %}

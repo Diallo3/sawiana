@@ -9,7 +9,7 @@
 				{% for item in items %}
 					{% unless item.exclude %}
 					<li>
-						<a href="{{base}}{{ item.url }}" {% if item.url == page.url %}class="active"{% endif %}>{{ item.nav-item }}</a>
+						<a href="{{base}}{{ item.url }}" class="page-link{% if item.url == page.url %} active{% endif %}" title="{{item.title}}">{{ item.nav-item }}</a>
 					</li>
 					{% endunless %}
 				{% endfor %}

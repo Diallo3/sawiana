@@ -128,31 +128,34 @@
 			}
 		});
 
-	    // Init ScrollMagic
-	    var controller = new ScrollMagic.Controller();
 
-	    // loop scenes
-	    $('.cd-section .entry').each(function(){
-	    	var fadeScene = new ScrollMagic.Scene({
-		    	triggerElement: this,
-		    	// duration: '95%'
-		    })
-		    .setClassToggle(this, 'enter')
-		    .addTo(controller);
-	    });
+		function scrollMagik() {
+			// Init ScrollMagic
+		    var controller = new ScrollMagic.Controller();
 
-	    // parallax
-	    $('.dk').each(function(){
-	    	var backgroundSlide = new ScrollMagic.Scene({
-		    	triggerElement: this,
-		    	triggerHook: 1,
-		    	duration: '200%'
-		    })
-		    .setTween(TweenMax.from('.bcg', 1, {y: '-30%', ease:Power0.easeNone}))
-		    .addTo(controller);
-	    });
+		    // loop scenes
+		    $('.cd-section .entry').each(function(){
+		    	var fadeScene = new ScrollMagic.Scene({
+			    	triggerElement: this,
+			    	duration: '100%'
+			    })
+			    .setClassToggle(this, 'enter')
+			    .addTo(controller);
+		    });
 
-
+		    // parallax
+		    $('.dk').each(function(){
+		    	var backgroundSlide = new ScrollMagic.Scene({
+			    	triggerElement: this,
+			    	triggerHook: 1,
+			    	duration: '200%'
+			    })
+			    .setTween(TweenMax.from('.bcg', 1, {y: '-30%', ease:Power0.easeNone}))
+			    .addTo(controller);
+		    });
+		}
+		scrollMagik();
+		
 
 	    // Form Labels
 		function floatLabels() {
@@ -170,7 +173,6 @@
 		function checkVal(inputField) {
 			( inputField.val() == '' ) ? inputField.prev('.cd-label').removeClass('float') : inputField.prev('.cd-label').addClass('float');
 		}
-
 		
 
 		if ($('#home-page').length) {

@@ -6,6 +6,12 @@
     top: 0;
     left: 0;
     z-index: 5;
+     @include mui-animation(fade);
+
+        transition-timing-function: ease-in;
+        animation-duration: 0.5s;
+
+        animation-fill-mode: both;
     &.smaller {
         height: 80px !important;
         .site-header {
