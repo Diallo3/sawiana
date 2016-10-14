@@ -262,7 +262,7 @@
     }
     li:not(.nav-item) {
         color: $site-secondary-color;
-        text-align: left;
+        text-align: center;
         div {
             @include center-block;
             max-width: 250px;
@@ -543,8 +543,11 @@ input.rdr {
 
     width: 62px;
     height: 78px;
-    display: block;
+    display: none;
     bottom: 20px;
+    @include bp(mediumUp) {
+        display: block;
+    }
 }
 
 .arrows {

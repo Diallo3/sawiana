@@ -121,10 +121,10 @@ gulp.task('sass', function() {
 });
 
 gulp.task('jquery', function() {
-    var uglify = $.if(!isProduction, $.uglify()
+    var uglify = $.uglify()
         .on('error', function (e) {
             console.log(e);
-        }));
+        });
 
     return gulp.src(PATHS.jquery)
         .pipe($.concat('jquery.js'))
@@ -134,10 +134,10 @@ gulp.task('jquery', function() {
 });
 
 gulp.task('fnd', function() {
-    var uglify = $.if(!isProduction, $.uglify()
+    var uglify = $.uglify()
         .on('error', function (e) {
             console.log(e);
-        }));
+        });
 
     return gulp.src(PATHS.foundation) 
         .pipe($.concat('fnd.js'))

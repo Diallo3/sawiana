@@ -1,3 +1,35 @@
+// encode emails
+function convertMailAddress() {
+	var emailElements;
+  		if (document.getElementsByClassName)
+    		emailElements = document.getElementsByClassName("email");
+  		else
+    		emailElements = document.getElementsByClassNameForOldies("email");
+  			var elementContent, replaceContent;
+
+  			for (var i=0; i<emailElements.length; i++) {
+    			elementContent = emailElements[i].innerHTML;
+    			replaceContent = elementContent.replace(" [at] ", "&#64;");
+    			emailElements[i].innerHTML =
+      			"<a href=\"mailto:" + replaceContent + "\">" + replaceContent + "</a>";
+  			}
+}
+
+// http://javascript.about.com/library/bldom08.htm
+document.getElementsByClassNameForOldies = function(cl) {
+  	var retnode = [];
+  	var myclass = new RegExp('\\b'+cl+'\\b');
+  	var elem = this.getElementsByTagName('*');
+
+  	for (var i = 0; i < elem.length; i++) {
+    	var classes = elem[i].className;
+    	if (myclass.test(classes)) retnode.push(elem[i]);
+  	}
+  	return retnode;
+};
+
+window.onload = convertMailAddress;
+
 (function($) {
 
 	$(function(){
@@ -192,35 +224,3 @@
 
 	
 })(jQuery);
-
-// encode emails
-function convertMailAddress() {
-	var emailElements;
-  		if (document.getElementsByClassName)
-    		emailElements = document.getElementsByClassName("email");
-  		else
-    		emailElements = document.getElementsByClassNameForOldies("email");
-  			var elementContent, replaceContent;
-
-  			for (var i=0; i<emailElements.length; i++) {
-    			elementContent = emailElements[i].innerHTML;
-    			replaceContent = elementContent.replace(" [at] ", "&#64;");
-    			emailElements[i].innerHTML =
-      			"<a href=\"mailto:" + replaceContent + "\">" + replaceContent + "</a>";
-  			}
-}
-
-// http://javascript.about.com/library/bldom08.htm
-document.getElementsByClassNameForOldies = function(cl) {
-  	var retnode = [];
-  	var myclass = new RegExp('\\b'+cl+'\\b');
-  	var elem = this.getElementsByTagName('*');
-
-  	for (var i = 0; i < elem.length; i++) {
-    	var classes = elem[i].className;
-    	if (myclass.test(classes)) retnode.push(elem[i]);
-  	}
-  	return retnode;
-};
-
-window.onload = convertMailAddress;
