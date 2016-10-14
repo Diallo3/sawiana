@@ -113,57 +113,53 @@
 	<!-- Form -->
 	<div id="formContainer" class="form">
 		<article class="entry">
-
 			<form class="cd-form floating-labels" action="https://formspree.io/info@sawiana.com" method="POST">
+	<fieldset>
+		<!-- error 
+		<div class="error-message">
+			<p>Please enter a valid email address</p>
+		</div>
+		-->
+		
+		<div class="field-container">
+			<!-- left side -->
+			<div class="form-left">
+				<div class="icon">
+					<label class="cd-label" for="cd-name">Full Name</label>
+					<input class="user" type="text" name="Full Name" id="cd-name" required>
+			    </div>
 
-				<fieldset>
-					<!-- error 
-					<div class="error-message">
-						<p>Please enter a valid email address</p>
-					</div>
-					-->
-					
-					<div class="field-container">
-						<!-- left side -->
-						<div class="form-left">
-							<div class="icon">
-								<label class="cd-label" for="cd-name">Full Name</label>
-								<input class="user" type="text" name="Full Name" id="cd-name" required>
-						    </div>
+			    <div class="icon">
+			    	<label class="cd-label" for="cd-email">Email</label>
+					<input class="email" type="email" name="Email" id="cd-email" name="_replyto" required>
+			    </div>
+			
+			    <div class="icon">
+			    	<label class="cd-label" for="cd-phone">Phone</label>
+					<input class="tel" type="text" name="Phone" id="cd-phone" required="">
+			    </div> 
 
-						    <div class="icon">
-						    	<label class="cd-label" for="cd-email">Email</label>
-								<input class="email" type="email" name="Email" id="cd-email" name="_replyto" required>
-						    </div>
-						
-						    <div class="icon">
-						    	<label class="cd-label" for="cd-phone">Phone</label>
-								<input class="tel" type="text" name="Phone" id="cd-phone" required="">
-						    </div> 
+			    <input type="text" name="_gotcha" style="display:none" />   
+			</div>
+			
+			<!-- right side -->
+			<div class="form-right">
+				<div class="icon">
+					<label class="cd-label" for="cd-textarea">What are you interested in learning?</label>
+					<textarea class="message" name="Message" id="cd-textarea" required></textarea>
+				</div>
+			</div>
+		</div>
 
-						    <input type="text" name="_gotcha" style="display:none" />
-						
-						    
-						</div>
-						
-						<!-- right side -->
-						<div class="form-right">
-							<div class="icon">
-								<label class="cd-label" for="cd-textarea">What are you interested in learning?</label>
-								<textarea class="message" name="Message" id="cd-textarea" required></textarea>
-							</div>
-						</div>
-					</div>
-
-					<div class="submit-container">
-				      	<input type="submit" value="Send Message" class="submit">
-				    </div>
-				    <input type="hidden" name="_next" value="/thank-you.html" />
-				    <input type="hidden" name="_subject" value="New submission for Sawiana!" />
-				</fieldset>
-			</form>
-
-
+		<div class="submit-container">
+	      	<input type="submit" value="Send Message" class="submit">
+	    </div>
+	    <input type="hidden" name="_next" value="/thank-you.html" />
+	    <input type="hidden" name="_subject" value="New submission for Sawiana!" />
+	    <input type="hidden" name="_cc" value="chad@sawiana.com, chad.jones@virtualpotential.com, d@diallohudgins.com" />
+	    <input type="text" name="_gotcha" style="display:none" />
+	</fieldset>
+</form>
 		</article>
 	</div>
 
@@ -226,12 +222,17 @@
 	</ul>
 </nav>
         </main>
+
+        <script src="assets/js/jquery.js"></script>
+<script src="assets/js/fnd.js"></script>
         
         <!-- GreenSock TweenMax -->
         <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.18.2/TweenMax.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.5/ScrollMagic.min.js"></script>
         <!-- ScrollMagic GreenSock Plugin -->
         <script src="https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.5/plugins/animation.gsap.js"></script>
+
+        <script src="https://cdn.jsdelivr.net/jquery.midnight/1.1.1/midnight.jquery.min.js"></script>
 
         <!-- app -->
         <script src="assets/js/app.js"></script>
