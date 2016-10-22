@@ -188,6 +188,7 @@
         padding: $li-padding;
         float: $li-float;
         position: relative;
+        display: inline;
         &:last-child {
             margin-right: 0; 
         }

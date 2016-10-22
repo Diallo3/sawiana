@@ -1,11 +1,12 @@
 // Header
 .header-container {
     width: 100%;
-    height: 110px !important;
+    height: 110px;
     position: fixed;
     top: 0;
     left: 0;
     z-index: 5;
+    overflow: hidden;
      @include mui-animation(fade, slide(in, down));
 
         transition-timing-function: ease-in;
@@ -13,7 +14,7 @@
 
         animation-fill-mode: both;
     &.smaller {
-        height: 80px !important;
+        height: 80px;
         .site-header {
             @include bp(mediumUp) {
                 padding: 1em 2em .5em;
@@ -145,6 +146,7 @@
             }
             .tw-logo {
                 width: 36px;
+                height: 36px; 
                 .tw-color {
                     fill: $white;
                 }
