@@ -10,8 +10,16 @@ figure {
 
 .ov {
     @include abs-pos($t: 0, $r:0, $b:0, $l:0);
-    @include radial-gradient(#0c2637, $black);
-    opacity: 0.5; 
+}
+
+.page-vid {
+    @include foundation-flex-video;
+    @include bp(large) {
+        max-width: 80% 
+    }
+    margin-right: auto; 
+    margin-left: auto; 
+    padding: 2em 0; 
 }
 
 .vid-bg {
@@ -25,14 +33,12 @@ figure {
 }
 
 .main-scene {
+    @include mui-animation(fade);
 
-        @include mui-animation(fade);
+    transition-timing-function: ease-in;
+    animation-duration: 1.2s;
 
-        transition-timing-function: ease-in;
-        animation-duration: 1.2s;
-
-        animation-fill-mode: both;
-
+    animation-fill-mode: both;
 }
 
 /* -------------------------------- 
@@ -42,13 +48,15 @@ Main components
 -------------------------------- */
 
 .cd-section {
+    @include bp(large) {
+        min-height: 700px;
+    }
     color: darken($text-gray, 20%);
     text-align: center;
     background-color: $section-bck;
     padding: 2em 1em;
     width: 100%;
     height: auto;
-    min-height: 100vh;
     display: block;
     overflow: hidden;
     position: relative;
@@ -130,6 +138,11 @@ Main components
     -webkit-background-size: cover;
          -o-background-size: cover;
             background-size: cover;
+    .ov {
+        @include radial-gradient(#0c2637, $black);
+
+        opacity: .5;
+    }
 }
 
 /*-- About -- */
@@ -160,6 +173,9 @@ Main components
 
 /*-- Solutions --*/
 #solutions {
+    .ov {
+        background-color: rgba(0, 0, 0, .3);
+    }
     .bcg {
         background-image: url(#{$imgPath}/img-solutions.jpg);
 
@@ -174,7 +190,7 @@ Main components
     }
     .solution-set {
         @include grid-row;
-        padding: 2em 0;
+        padding: 3em 0;
         max-width: 100%;
         .set {
             @include bp(large) {

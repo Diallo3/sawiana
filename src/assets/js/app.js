@@ -174,7 +174,7 @@ window.onload = convertMailAddress;
 		    $('.cd-section .entry').each(function(){
 		    	var fadeScene = new ScrollMagic.Scene({
 			    	triggerElement: this,
-			    	duration: '100%'
+			    	duration: '200%'
 			    })
 			    .setClassToggle(this, 'enter')
 			    .addTo(controller);
