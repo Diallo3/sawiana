@@ -4,9 +4,13 @@ body {
 }
 
 @include headings() {
-    color: $black;
+    color: lighten($black, 30%);
     font-family: $roboto;
     font-weight: 300;
+    sup {
+        font-size: rem(13);
+        top: -20px;
+    }
 }
 
 @include headings(1) {
@@ -17,12 +21,21 @@ body {
 @include headings(2) {
     font-size: rem(26);
     margin: 0 0 .3rem;
+    &.sub-title {
+        margin-bottom: 2em;
+    }
+}
+
+sup {
+    font-size: rem(10);
+    position: relative;
+    top: -10px;
 }
 
 a {
-    color: $site-primary-color;
-    text-decoration: none; 
     @include transition(all .8s ease-in-out);
+    color: $site-primary-color;
+    text-decoration: none;
     &:active {
         color: $site-secondary-color;
     }
@@ -36,6 +49,7 @@ p {
     color: darken($text-gray, 20%);
     font-size: rem(18);
     font-weight: 400;
+    margin-top: 0;
 }
 
 .callout {
@@ -105,7 +119,10 @@ p {
 /*-- Intro --*/
 #intro, #hero {
     .title {
-        font-size: rem(54);
+        @include bp(large) {
+            font-size: rem(54);
+        }
+        font-size: rem(36);
         font-weight: 500;
         margin-bottom: .2em;
     }
@@ -123,7 +140,7 @@ p {
 #solutions {
     p {
         @include line-height(30);
-        font-size: rem(30); 
+        font-size: rem(30);
         font-size: rem(22);
         font-weight: 300;
     }
@@ -132,7 +149,7 @@ p {
             @include bp(mediumUp) {
                 font-size: rem(18.5);
             }
-            font-size: rem(21); 
+            font-size: rem(21);
             font-weight: 500;
         }
         p {
@@ -165,9 +182,9 @@ p {
             padding: 0;
         }
         cite {
+            font-size: rem(14);
             font-style: normal;
             text-transform: uppercase;
-            font-size: rem(14);
             em {
                 font-style: italic;
                 text-transform: none;
@@ -182,12 +199,12 @@ p {
     .set {
         text-align: center;
         .case-title {
-            font-size: rem(16);
+            font-size: rem(18);
             font-weight: 400;
             height: 60px;
         }
         .case {
-            font-size: rem(13) !important;
+            font-size: rem(15) !important;
             text-align: center !important;
         }
     }

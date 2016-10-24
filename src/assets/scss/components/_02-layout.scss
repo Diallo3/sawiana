@@ -19,7 +19,7 @@ figure {
     }
     margin-right: auto; 
     margin-left: auto; 
-    padding: 2em 0; 
+    padding-bottom: 2em; 
 }
 
 .vid-bg {
@@ -49,6 +49,7 @@ Main components
 
 .cd-section {
     @include bp(large) {
+        padding: 5em 1em 2em;
         min-height: 700px;
     }
     color: darken($text-gray, 20%);
@@ -138,6 +139,7 @@ Main components
     -webkit-background-size: cover;
          -o-background-size: cover;
             background-size: cover;
+    height: 100vh; 
     .ov {
         @include radial-gradient(#0c2637, $black);
 
@@ -190,7 +192,7 @@ Main components
     }
     .solution-set {
         @include grid-row;
-        padding: 3em 0;
+        padding: 1em 0 3em;
         max-width: 100%;
         .set {
             @include bp(large) {
@@ -323,10 +325,10 @@ Main components
     position: relative;
     .set {
         @include bp(medium) {
-            @include grid-col(6, 15px);
+            @include grid-col(6, 20px);
         }
         @include bp(large) {
-            @include grid-col(3, 15px);
+            @include grid-col(3, 20px);
         }
         .icon {
             @include circle(50px, $white);
