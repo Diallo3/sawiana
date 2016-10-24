@@ -127,6 +127,7 @@ Main components
 }
 
 #intro, #hero {
+    height: 100vh;
     .entry {
         @include center-align($hor: true, $pos: absolute);
     }
@@ -139,7 +140,6 @@ Main components
     -webkit-background-size: cover;
          -o-background-size: cover;
             background-size: cover;
-    height: 100vh; 
     .ov {
         @include radial-gradient(#0c2637, $black);
 
