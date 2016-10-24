@@ -48,14 +48,14 @@ Main components
 -------------------------------- */
 
 .cd-section {
-    @include bp(large) {
-        padding: 5em 1em 2em;
+    @include bp(mediumUp) {
+        padding: 5em 1em 3em;
         min-height: 700px;
     }
     color: darken($text-gray, 20%);
     text-align: center;
     background-color: $section-bck;
-    padding: 2em 1em;
+    padding: 3em 1em;
     width: 100%;
     height: auto;
     display: block;
