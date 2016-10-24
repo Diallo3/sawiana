@@ -94,32 +94,18 @@
         }
         h1 {
             @include zero-out;
-            width: 230px;
-            @include bp(medium) {
-                width: 300px; 
-            }
-            @include bp(large) {
-                width: auto; 
-            }
             position: relative;
-            &:after {
-                @include abs-pos($t: 8px, $r: -8px);
-                content: "TM";
-                color: $white;
-                font-size: rem(10);
-                font-weight: bold;
-            }
             a {
                 @include hide-text;
                 @include bp(mediumUp) {
-                    width: 287px;
-                    height: 50px;
+                    width: 303px;
+                    height: 52px;
                 }
                 background-image: url(#{$imgPath}/logo-wht.svg);
-
-                -webkit-background-size: cover;
-                     -o-background-size: cover;
-                        background-size: cover;
+                background-repeat: no-repeat;
+                -webkit-background-size: contain;
+                     -o-background-size: contain;
+                        background-size: contain;
                 width: 220px;
                 height: 38px;
                 display: block;
